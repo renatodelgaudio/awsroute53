@@ -29,6 +29,8 @@ import java.net.URLConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import edu.umd.cs.findbugs.annotations.SuppressWarnings;
+
 
 public class IcanHazip implements IpProvider {
 	
@@ -37,7 +39,7 @@ public class IcanHazip implements IpProvider {
 	public String providerName() {
 		return "icanhazip";
 	}
-
+	@SuppressWarnings(value="DM_DEFAULT_ENCODING",justification="There are no other changes when the content encoding is not present in the HTTP response")
 	public String getIP() throws IpRetrievalException{
 		try{
 			URL url = new URL("https://icanhazip.com");

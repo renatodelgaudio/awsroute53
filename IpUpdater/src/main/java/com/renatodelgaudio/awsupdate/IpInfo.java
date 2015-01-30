@@ -31,6 +31,8 @@ import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 
+import edu.umd.cs.findbugs.annotations.SuppressWarnings;
+
 public class IpInfo implements IpProvider {
 	
 	private final static Logger log = LoggerFactory.getLogger(IpInfo.class);
@@ -38,7 +40,7 @@ public class IpInfo implements IpProvider {
 	public String providerName() {
 		return "IpInfo";
 	}
-
+	@SuppressWarnings(value="DM_DEFAULT_ENCODING",justification="There are no other changes when the content encoding is not present in the HTTP response")
 	public String getIP() throws IpRetrievalException{
 		try{
 			Gson gson = new Gson();
