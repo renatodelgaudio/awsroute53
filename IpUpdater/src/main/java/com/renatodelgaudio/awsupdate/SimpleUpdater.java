@@ -62,7 +62,7 @@ public class SimpleUpdater implements Updater {
 	String dnsIp = recordService.getCurrentIP();
 
 	if(equalsIgnoreCase(publicIP,dnsIp)){
-	    log.info("AWS DNS is already configured with the public IP "+publicIP+" No actions were performed at this time");
+	    log.info("AWS DNS ("+config.getRecordName()+") is already configured with the public IP "+publicIP+" No actions were performed at this time");
 	    return;
 	}
 
