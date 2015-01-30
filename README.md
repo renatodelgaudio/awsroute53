@@ -33,7 +33,12 @@ At the moment the following platform packages are available:
 ## Reports
 The releases reports are viewable from http://renatodelgaudio.github.io/IpUpdaterReleases/versionxxx/reports/
 
-e.g. http://renatodelgaudio.github.io/IpUpdaterReleases/1.0.0/reports/
+e.g. http://renatodelgaudio.github.io/IpUpdaterReleases/1.0.1/reports/
+
+
+Feel free to create a Pull request and I will be happy to integrate it.
+
+Renato Del Gaudio
 
 
 
