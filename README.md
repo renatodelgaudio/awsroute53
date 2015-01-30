@@ -11,10 +11,11 @@ This is a **Java** based program to install on any machine that will detect its 
 
 ## Requirements
 In order to use this tool you will need the following
-1. Active aws account
-2. The hosted zone configured within aws Route53
-3. Valid aws credentials (**secretKey** and **accessKey**) with write access to your aws Route53 service
-4. Java installed on the machine where you intend to run this utility
+
+- Active aws account
+- The hosted zone configured within aws Route53
+- Valid aws credentials (**secretKey** and **accessKey**) with write access to your aws Route53 service
+- Java installed on the machine where you intend to run this utility
 
 In case the configured record name is not present within the aws hosted zone, it will be created (type A) otherwise it will be simply updated with the new detected public IP.
 
