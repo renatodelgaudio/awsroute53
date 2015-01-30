@@ -42,9 +42,10 @@ public class IcanHazip implements IpProvider {
 		try{
 			URL url = new URL("https://icanhazip.com");
 			URLConnection conn = url.openConnection();
-
+			String encoding = conn.getContentEncoding();
 			// open the stream and put it into BufferedReader
-			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			InputStreamReader isr = encoding == null ? new InputStreamReader(conn.getInputStream()) : new InputStreamReader(conn.getInputStream(),encoding);
+			BufferedReader br = new BufferedReader(isr);
 			String line = br.readLine();
 			br.close();
 			log.info("Public IP: "+line);

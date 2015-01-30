@@ -129,6 +129,10 @@
 									<maxmemory>1024m</maxmemory>
 								</configuration>
 							</plugin>
+							<plugin>
+								<groupId>org.codehaus.mojo</groupId>
+								<artifactId>findbugs-maven-plugin</artifactId>
+							</plugin>
 						</reportPlugins>
 						<generateReports>true</generateReports>
 						<inputEncoding>UTF-8</inputEncoding>
@@ -228,29 +232,29 @@
 					</execution>
 				</executions>
 			</plugin>
-		      <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>findbugs-maven-plugin</artifactId>
-            <configuration>
-                <effort>Max</effort>
-                <failOnError>false</failOnError>
-                <!-- Reports all bugs (other values are medium and max) -->
-                <threshold>Low</threshold>
-                <!-- Produces XML report -->
-                <xmlOutput>true</xmlOutput>
-                <!-- Configures the directory in which the XML report is created -->
-                <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
-            </configuration>
-            <executions>
-                <execution>
-                    <id>analyze-compile</id>
-                    <phase>compile</phase>
-                    <goals>
-                        <goal>check</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<configuration>
+					<effort>Max</effort>
+					<failOnError>false</failOnError>
+					<!-- Reports all bugs (other values are medium and max) -->
+					<threshold>Low</threshold>
+					<!-- Produces XML report -->
+					<xmlOutput>true</xmlOutput>
+					<!-- Configures the directory in which the XML report is created -->
+					<findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<id>analyze-compile</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>

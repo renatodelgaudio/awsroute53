@@ -25,6 +25,7 @@ import static org.apache.commons.lang.StringUtils.isBlank;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +45,7 @@ public class IpUtil {
 		providers[0] = new IcanHazip();
 		providers[1] = new IpInfo();
 
-		int mainIndex = (int) Math.round(Math.random());
+		int mainIndex = new Random().nextInt(2);
 		int fallBackIndex = ~mainIndex + 2;
 
 		List<IpProvider> ret = new ArrayList<IpProvider>();

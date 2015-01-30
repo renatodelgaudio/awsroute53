@@ -44,9 +44,10 @@ public class IpInfo implements IpProvider {
 			Gson gson = new Gson();
 			URL url = new URL("http://ipinfo.io/json");
 			URLConnection conn = url.openConnection();
-
+			String encoding = conn.getContentEncoding();
 			// open the stream and put it into BufferedReader
-			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			InputStreamReader isr = encoding == null ? new InputStreamReader(conn.getInputStream()) : new InputStreamReader(conn.getInputStream(),encoding);
+			BufferedReader br = new BufferedReader(isr);
 			String line = null;
 			StringBuilder sb = new StringBuilder();
 			while ( (line = br.readLine()) != null){
