@@ -31,7 +31,7 @@ At the moment the following platform packages are available:
 3. Run the launcher (e.g. run.sh or rub.bat)
 
 ## Reports
-The releases reports are viewable from http://renatodelgaudio.github.io/IpUpdaterReleases/<version>/reports/
+The releases reports are viewable from http://renatodelgaudio.github.io/IpUpdaterReleases/versionxxx/reports/
 
 e.g. http://renatodelgaudio.github.io/IpUpdaterReleases/1.0.0/reports/
 
