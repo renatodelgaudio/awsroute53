@@ -1,0 +1,15 @@
+#!/bin/sh
+
+CURRDIR="`pwd`"
+
+
+JAVA_TOOL_OPTIONS=
+JAVA_OPTIONS=
+_JAVA_OPTIONS=
+IBM_JAVA_OPTIONS=
+
+
+JAVA_OPTS="-DINSTALL_DIR=$CURRDIR"
+
+java $JAVA_OPTS -jar IpUpdater.jar
+

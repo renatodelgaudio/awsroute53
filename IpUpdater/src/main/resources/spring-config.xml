@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+	<context:component-scan base-package="com.renatodelgaudio.awsupdate" />
+
+
+	<bean
+		class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>file:${INSTALL_DIR}/aws.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="recordService" name="recordService" class="com.renatodelgaudio.awsupdate.SimpleRecordService" />
+	<bean id="config" name="config" class="com.renatodelgaudio.awsupdate.PropertyConfig" />
+
+	<!-- Main implementation bean -->
+	<bean id="simpleUpdater" name="simpleUpdater" class="com.renatodelgaudio.awsupdate.SimpleUpdater"/>
+
+
+	<!-- COMMON -->
+
+	<import resource="common-config.xml" />
+
+
+</beans>

@@ -1,0 +1,35 @@
+<configuration>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<withJansi>true</withJansi>
+		<encoder>
+			<!-- <pattern> -->
+			<pattern>%d{dd.MM.yyyy HH:mm:ss} %-5level %logger - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="RollingFILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>awsupdater.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>awsupdater.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{dd.MM.yyyy HH:mm:ss} %-5level %logger - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="com.renatodelgaudio.awsupdate" level="INFO" />
+		
+	<root level="ERROR">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="RollingFILE" />
+	</root>
+	
+	
+
+</configuration>

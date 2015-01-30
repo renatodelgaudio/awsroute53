@@ -1,0 +1,20 @@
+2015-01-28 23:06:15,081 INFO o.s.c.s.ClassPathXmlApplicationContext [AbstractApplicationContext.java:513] Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2c766a24: startup date [Wed Jan 28 23:06:15 CET 2015]; root of context hierarchy
+2015-01-28 23:06:15,192 INFO o.s.b.f.x.XmlBeanDefinitionReader [XmlBeanDefinitionReader.java:316] Loading XML bean definitions from class path resource [spring-config.xml]
+2015-01-28 23:06:15,671 INFO o.s.b.f.x.XmlBeanDefinitionReader [XmlBeanDefinitionReader.java:316] Loading XML bean definitions from class path resource [common-config.xml]
+2015-01-28 23:06:15,797 INFO o.s.c.s.PropertySourcesPlaceholderConfigurer [PropertiesLoaderSupport.java:172] Loading properties file from URL [file:/Users/renato/git/AWSUpdater/IpUpdater/aws.properties]
+2015-01-28 23:06:15,851 INFO c.r.a.RouteMain [RouteMain.java:43] Running com.renatodelgaudio.awsupdate.SimpleUpdater ....
+2015-01-28 23:06:16,238 WARN c.a.h.AmazonHttpClient [AmazonHttpClient.java:141] Detected a possible problem with the current JVM version (1.6.0_65).  If you experience XML parsing problems using the SDK, try upgrading to a more recent JVM update.
+2015-01-28 23:06:17,143 INFO c.r.a.IpInfo [IpInfo.java:60] Public IP: 92.105.171.237
+2015-01-28 23:06:19,915 ERROR c.r.a.RouteMain [RouteMain.java:48] Opps something went wrong
+com.amazonaws.AmazonServiceException: The security token included in the request is invalid (Service: AmazonRoute53; Status Code: 403; Error Code: InvalidClientTokenId; Request ID: e1179120-a739-11e4-9b1e-5fe3767d5cf8)
+	at com.amazonaws.http.AmazonHttpClient.handleErrorResponse(AmazonHttpClient.java:1077) ~[aws-java-sdk-core-1.9.13.jar:na]
+	at com.amazonaws.http.AmazonHttpClient.executeOneRequest(AmazonHttpClient.java:725) ~[aws-java-sdk-core-1.9.13.jar:na]
+	at com.amazonaws.http.AmazonHttpClient.executeHelper(AmazonHttpClient.java:460) ~[aws-java-sdk-core-1.9.13.jar:na]
+	at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:295) ~[aws-java-sdk-core-1.9.13.jar:na]
+	at com.amazonaws.services.route53.AmazonRoute53Client.invoke(AmazonRoute53Client.java:2127) ~[aws-java-sdk-route53-1.9.13.jar:na]
+	at com.amazonaws.services.route53.AmazonRoute53Client.listResourceRecordSets(AmazonRoute53Client.java:643) ~[aws-java-sdk-route53-1.9.13.jar:na]
+	at com.renatodelgaudio.awsupdate.SimpleRecordService.getCurrentRecordSet(SimpleRecordService.java:68) ~[classes/:na]
+	at com.renatodelgaudio.awsupdate.SimpleRecordService.getCurrentIP(SimpleRecordService.java:49) ~[classes/:na]
+	at com.renatodelgaudio.awsupdate.SimpleUpdater.run(SimpleUpdater.java:62) ~[classes/:na]
+	at com.renatodelgaudio.awsupdate.RouteMain.main(RouteMain.java:46) ~[classes/:na]
+2015-01-28 23:06:19,915 INFO c.r.a.RouteMain [RouteMain.java:52] com.renatodelgaudio.awsupdate.SimpleUpdater completed in 0 sec.
