@@ -20,6 +20,24 @@ In order to use this tool you will need the following
 In case the configured record name is not present within the aws hosted zone, it will be created (type A) otherwise it will be simply updated with the new detected public IP.
 
 ## Download and Install
+Download the latest release from [Releases repository](https://github.com/renatodelgaudio/renatodelgaudio.github.io/tree/master/IpUpdaterReleases "Releases repository")
+
+At the moment the following platform packages are available:
+- **Windows** (file name IpUpdater-XXX-win-package)
+- **Linux/Mac** (file name IpUpdater-XXX-linux-mac-package)
+
+1. Unzip the package in any directory
+2. Locate the file named **aws.properties** and provide the correct values
+3. Run the launcher (e.g. run.sh or rub.bat)
+
+## Reports
+The releases reports are viewable from http://renatodelgaudio.github.io/IpUpdaterReleases/<version>/reports/
+
+e.g. http://renatodelgaudio.github.io/IpUpdaterReleases/1.0.0/reports/
+
+
+
+
 
 
 
