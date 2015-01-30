@@ -130,7 +130,7 @@
 					<version>2.5.1</version>
 					<configuration>
 						<preparationGoals>clean</preparationGoals>
-						<goals>install</goals>
+						<goals>install site</goals>
 					</configuration>
 					<dependencies>
 						<dependency>
