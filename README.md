@@ -31,7 +31,7 @@ At the moment the following platform packages are available:
 3. Run the launcher (e.g. run.sh or rub.bat)
 
 More details on installation steps are available on the wiki
-[Linux manual installation steps](https://github.com/renatodelgaudio/awsroute53/wiki/How-to-install-manually-IpUpdater-as-a-crontab-job-on-Linux "Linux manual installation steps")
+[Linux manual installation steps](https://github.com/renatodelgaudio/awsroute53/wiki/Linux-manual-installation-steps "Linux manual installation steps")
 
 ## Reports
 The releases reports are viewable from http://renatodelgaudio.github.io/IpUpdaterReleases/versionxxx/reports/
