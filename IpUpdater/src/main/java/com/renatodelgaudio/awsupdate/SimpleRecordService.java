@@ -23,6 +23,7 @@ package com.renatodelgaudio.awsupdate;
 
 import static org.apache.commons.lang.StringUtils.equalsIgnoreCase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -116,7 +117,9 @@ public class SimpleRecordService implements AWSRecordService {
 
 		
 		set.setTTL(Long.parseLong(config.getTTL()));
-		set.withResourceRecords(new ResourceRecord(ip));
+		List<ResourceRecord> l = new ArrayList<ResourceRecord>();
+		l.add(new ResourceRecord(ip));
+		set.setResourceRecords(l);
 
 		change.setResourceRecordSet(set);
 		batch.withChanges(change);
