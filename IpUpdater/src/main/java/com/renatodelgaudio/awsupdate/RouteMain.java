@@ -21,6 +21,9 @@
  */
 package com.renatodelgaudio.awsupdate;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -39,6 +42,7 @@ public class RouteMain {
 	{
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 		Updater updater =  context.getBean(Updater.class);   
+		Mailer mailer = context.getBean(Mailer.class);
 
 		log.info("Running "+updater.getClass().getName()+" ....");
 		long start = System.currentTimeMillis();
@@ -46,6 +50,10 @@ public class RouteMain {
 			updater.run(context);
 		}catch(Exception e) {
 			log.error("Opps something went wrong", e);
+			StringWriter errors = new StringWriter();
+			e.printStackTrace(new PrintWriter(errors));
+			String st = errors.toString();
+			mailer.sendEmail("IpUpdater: Software error", "Something went wrong during the program execution.\nStack Trace\n\n"+st);
 		}
 		long end = System.currentTimeMillis();
 		long timeMin = (end - start) / 1000 / 60 / 60;

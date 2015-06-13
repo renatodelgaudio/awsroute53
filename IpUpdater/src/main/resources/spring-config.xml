@@ -8,7 +8,7 @@
 	<context:component-scan base-package="com.renatodelgaudio.awsupdate" />
 
 
-	<bean
+	<bean id="prop"
 		class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 		<property name="locations">
@@ -22,7 +22,10 @@
 	<bean id="config" name="config" class="com.renatodelgaudio.awsupdate.PropertyConfig" />
 
 	<!-- Main implementation bean -->
-	<bean id="simpleUpdater" name="simpleUpdater" class="com.renatodelgaudio.awsupdate.SimpleUpdater"/>
+	<bean id="simpleUpdater" name="simpleUpdater"
+		class="com.renatodelgaudio.awsupdate.SimpleUpdater" />
+		
+	<bean id="mailer" name="mailer" class="com.renatodelgaudio.awsupdate.Mailer" />
 
 
 	<!-- COMMON -->

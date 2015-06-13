@@ -24,6 +24,9 @@ import static org.apache.commons.lang.StringUtils.isBlank;
 import static org.apache.commons.lang.StringUtils.trim;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -78,4 +81,25 @@ public class EnvUtil {
 		return r53;
 	}
 	
+	public static Properties getConfigAsProperty(){
+	    String awsPath = getAwsFilePath();
+	    File file = new File(awsPath);
+
+	    FileInputStream stream =null;
+
+	    try {
+		stream = new FileInputStream(file);
+		Properties ret = new Properties();
+		ret.load(stream);
+		return ret;
+	    } 
+	    catch (Exception e) {
+		throw new ConfigurationException(e.getMessage());
+	    }
+	    finally {
+		try {
+		    stream.close();
+		} catch (IOException ignored){}
+	    }
+	}
 }

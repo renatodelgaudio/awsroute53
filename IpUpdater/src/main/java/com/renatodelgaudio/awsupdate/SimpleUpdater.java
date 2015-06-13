@@ -42,6 +42,8 @@ public class SimpleUpdater implements Updater {
     protected AWSRecordService recordService;
     @Autowired
     protected Configuration config;
+    @Autowired
+    protected Mailer mailSender;
     /**
      * This is the main implementation
      */
@@ -56,21 +58,25 @@ public class SimpleUpdater implements Updater {
 	    publicIP = retrievePublicIP();
 	} catch (IpRetrievalException e) {
 	    log.error(e.getMessage(),e);
-	    throw new RuntimeException(e.getMessage());
+	    throw new RuntimeException(e);
 	}
 
 	String dnsIp = recordService.getCurrentIP();
 
 	if(equalsIgnoreCase(publicIP,dnsIp)){
 	    log.info("AWS DNS ("+config.getRecordName()+") is already configured with the public IP "+publicIP+" No actions were performed at this time");
+	    mailSender.sendDebugEmail("awsroute53 OK", "AWS DNS ("+config.getRecordName()+") is already configured with the public IP "+publicIP+" No actions were performed at this time");
 	    return;
 	}
 
 	boolean success = recordService.updateRecord(publicIP);
+	
 	if(!success){
 	    log.error("Ops. Something went wrong and DNS was not updated");
+	    mailSender.sendEmail("awsroute53 NOT OK", "Ops. Something went wrong and DNS was not updated");    
 	    return;
 	}
+	 mailSender.sendEmail("awsroute53 IP UPDATED OK", "Since a new IP has been detected ["+publicIP+"] the DNS has been updated accordingly");    
     }
 
 }

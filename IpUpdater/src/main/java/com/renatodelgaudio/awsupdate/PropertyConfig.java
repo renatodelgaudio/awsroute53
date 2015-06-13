@@ -23,6 +23,8 @@ package com.renatodelgaudio.awsupdate;
 
 import static com.renatodelgaudio.awsupdate.EnvUtil.buildRoute53;
 import static com.renatodelgaudio.awsupdate.EnvUtil.getAwsFilePath;
+import static org.apache.commons.lang.StringUtils.equalsIgnoreCase;
+import static org.apache.commons.lang.StringUtils.isBlank;
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 import static org.apache.commons.lang.StringUtils.trim;
 
@@ -45,8 +47,38 @@ public class PropertyConfig implements Configuration {
     private String recordName;
     @Value("${record.ttl}")
     private String ttl;
+    @Value("${mailsender.host}")
+    private String mailSenderHost;
+    @Value("${mailsender.protocol}")
+    private String mailSenderProtocol;
+    @Value("${mailsender.port}")
+    private String mailSenderPort;
+    @Value("${mailsender.username}")
+    private String mailSenderUsername;
+    @Value("${mailsender.password}")
+    private String mailSenderPassword;
+    @Value("${mailsender.from}")
+    private String mailSenderFrom;
+    @Value("${mailsender.to}")
+    private String mailSenderTo;
+    @Value("${mailsender.enable}")
+    private String mailsenderEnable;
+    
+    
+	
 
     private AmazonRoute53 r53;
+    
+    private String maskPasswd(String passwd){
+	if (isBlank(passwd)){
+	    return "";
+	}
+	int len = passwd.length();
+	StringBuilder sb = new StringBuilder(len);
+	for(int i=0;i<len;i++)
+	    sb.append("X");
+	return sb.toString();
+    }
 
     @Override
     public boolean isConfigOK() {
@@ -60,6 +92,20 @@ public class PropertyConfig implements Configuration {
 		log.error("zoneId:"+zoneId);
 		log.error("recordName:"+recordName);
 		log.error("ttl:"+ttl);
+	    }
+	    
+	    boolean mailOK = !equalsIgnoreCase(mailsenderEnable,"true") || (isNotBlank(mailSenderHost) && isNotBlank(mailSenderProtocol) && isNotBlank(mailSenderPort) &&
+		    isNotBlank(mailSenderUsername) && isNotBlank(mailSenderPassword) && isNotBlank(mailSenderFrom) && isNotBlank(mailSenderTo)) ;
+	    if(!mailOK) {
+		log.warn("Configuration email is not OK. Emails might not send out" );
+		log.warn("Please check that aws.properties contains at least all values for mailsender.* properties" );
+		log.warn("mailSenderHost:"+mailSenderHost);
+		log.warn("mailSenderProtocol:"+mailSenderProtocol);
+		log.warn("mailSenderPort:"+mailSenderPort);
+		log.warn("mailSenderUsername:"+mailSenderUsername);
+		log.warn("mailSenderPassword:"+maskPasswd(mailSenderPassword));
+		log.warn("mailSenderFrom:"+mailSenderFrom);
+		log.warn("mailSenderTo:"+mailSenderTo);
 	    }
 	    return ok;
 	}catch(Exception e){
