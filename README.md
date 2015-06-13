@@ -36,7 +36,7 @@ More details on installation steps are available on the wiki
 ## Reports
 The releases reports are viewable from http://renatodelgaudio.github.io/IpUpdaterReleases/versionxxx/reports/
 
-e.g. http://renatodelgaudio.github.io/IpUpdaterReleases/1.0.1/reports/
+e.g. http://renatodelgaudio.github.io/IpUpdaterReleases/1.0.2/reports/
 
 
 Feel free to create a Pull request and I will be happy to integrate it.
