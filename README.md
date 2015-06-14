@@ -8,6 +8,7 @@ This is the driver that motivated me to develop this small project as I did not 
 This is a **Java** based program to install on any machine that will detect its public IP to update a certain aws route53 record (**type A**) of your AWS account.
 
 **As simple as that!**
+
 E-mail notification feature is available as well so that you'll get emails upon the events that matters (e.g. DNS update, general software errors and so on)
 
 ## Requirements
