@@ -11,6 +11,7 @@
 		<project.build.sourceCodeLevel>1.6</project.build.sourceCodeLevel>
 		<plugin.surefire.report.version>2.15</plugin.surefire.report.version>
 		<plugin.compiler.version>3.1</plugin.compiler.version>
+		<spring.version>4.0.5.RELEASE</spring.version>
 
 	</properties>
 	<issueManagement>
@@ -257,15 +258,38 @@
 		</plugins>
 	</build>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>4.0.5.RELEASE</version>
-		</dependency>
+	<dependency>
+		<groupId>javax.inject</groupId>
+		<artifactId>javax.inject</artifactId>
+		<version>1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>4.0.5.RELEASE</version>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Spring AOP + AspectJ -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+ 
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.8.5</version>
+		</dependency>
+ 
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.5</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.mail</groupId>

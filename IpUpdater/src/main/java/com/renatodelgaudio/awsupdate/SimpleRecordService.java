@@ -26,9 +26,10 @@ import static org.apache.commons.lang.StringUtils.equalsIgnoreCase;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.amazonaws.services.route53.model.Change;
 import com.amazonaws.services.route53.model.ChangeBatch;
@@ -42,7 +43,7 @@ import com.amazonaws.services.route53.model.ResourceRecordSet;
 public class SimpleRecordService implements AWSRecordService {
 	
 	private final static Logger log = LoggerFactory.getLogger(SimpleRecordService.class);
-	@Autowired
+	@Inject
 	Configuration config;
 	
 	@Override

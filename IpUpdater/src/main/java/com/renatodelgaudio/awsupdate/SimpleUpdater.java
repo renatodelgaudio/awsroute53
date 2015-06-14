@@ -24,11 +24,11 @@ package com.renatodelgaudio.awsupdate;
 import static com.renatodelgaudio.awsupdate.IpUtil.retrievePublicIP;
 import static org.apache.commons.lang.StringUtils.equalsIgnoreCase;
 
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-
 /**
  * 
  * @author Renato Del Gaudio
@@ -38,11 +38,11 @@ public class SimpleUpdater implements Updater {
 
     private final static Logger log = LoggerFactory.getLogger(SimpleUpdater.class);
 
-    @Autowired
+    @Inject
     protected AWSRecordService recordService;
-    @Autowired
+    @Inject
     protected Configuration config;
-    @Autowired
+    @Inject
     protected Mailer mailSender;
     /**
      * This is the main implementation
@@ -76,7 +76,7 @@ public class SimpleUpdater implements Updater {
 	    mailSender.sendEmail("awsroute53 NOT OK", "Ops. Something went wrong and DNS was not updated");    
 	    return;
 	}
-	 mailSender.sendEmail("awsroute53 IP UPDATED OK", "Since a new IP has been detected ["+publicIP+"] the DNS has been updated accordingly");    
+	 mailSender.sendEmail("awsroute53 IP UPDATED OK", "Since a new IP has been detected ["+publicIP+"], the DNS has been updated accordingly");    
     }
 
 }
