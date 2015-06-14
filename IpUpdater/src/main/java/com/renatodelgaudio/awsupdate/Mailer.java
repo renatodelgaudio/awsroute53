@@ -118,7 +118,7 @@ public class Mailer {
 		Properties javaMail = new Properties();
 		for( Object key : prop.keySet()) {
 		    String sk = (String) key;
-		    if (StringUtils.startsWith(sk, "mail")){
+		    if (StringUtils.startsWith(sk, "mail.")){
 			javaMail.put(sk, prop.getProperty(sk));
 		    }
 		}
