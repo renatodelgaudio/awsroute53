@@ -8,6 +8,7 @@ This is the driver that motivated me to develop this small project as I did not 
 This is a **Java** based program to install on any machine that will detect its public IP to update a certain aws route53 record (**type A**) of your AWS account.
 
 **As simple as that!**
+E-mail notification feature is available as well so that you'll get emails upon the events that matters (e.g. DNS update, general software errors and so on)
 
 ## Requirements
 In order to use this tool you will need the following
@@ -36,16 +37,9 @@ More details on installation steps are available on the wiki
 ## Reports
 The releases reports are viewable from http://renatodelgaudio.github.io/IpUpdaterReleases/versionxxx/reports/
 
-e.g. http://renatodelgaudio.github.io/IpUpdaterReleases/1.0.2/reports/
+e.g. http://renatodelgaudio.github.io/IpUpdaterReleases/1.0.3/reports/
 
 
 Feel free to create a Pull request and I will be happy to integrate it.
 
 Renato Del Gaudio
-
-
-
-
-
-
-
