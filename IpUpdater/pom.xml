@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.renatodelgaudio.awsupdate</groupId>
 	<artifactId>IpUpdater</artifactId>
-	<version>1.0.4-SNAPSHOT</version>
+	<version>2.0.0-SNAPSHOT</version>
 	<name>IpUpdater</name>
 	<description>After having retrieved the public IP, it updates the AWS Router53 record</description>
 	<properties>
@@ -27,7 +27,7 @@
 			<id>renatodelgaudio</id>
 			<name>Renato Del Gaudio</name>
 			<email>renato.delgaudio@gmail.com</email>
-			<url>https://www.linkedin.com/in/renatodelgaudio</url>
+			<url>www.renatodelgaudio.com</url>
 			<roles>
 				<role>Developer</role>
 				<role>Architect</role>
