@@ -25,11 +25,6 @@ import com.amazonaws.services.route53.AmazonRoute53;
 
 public interface Configuration {
 	/**
-	 * It checks whether the config is OK
-	 * @return
-	 */
-	boolean isConfigOK();
-	/**
 	 * 
 	 * @return the zoneId
 	 */

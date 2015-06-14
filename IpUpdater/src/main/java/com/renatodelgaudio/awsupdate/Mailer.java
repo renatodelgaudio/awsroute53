@@ -121,7 +121,7 @@ public class Mailer {
 	}
 
 	mailSender.setJavaMailProperties(javaMail);
-	log.info("mailSender configured");
+	log.info("mailSender configured without errors. Email enabled:"+mailsenderEnable);
 
     }
 

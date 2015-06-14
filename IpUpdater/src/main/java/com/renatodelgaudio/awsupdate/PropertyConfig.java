@@ -30,6 +30,8 @@ import static org.apache.commons.lang.StringUtils.trim;
 
 import java.io.File;
 
+import javax.annotation.PostConstruct;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -80,8 +82,8 @@ public class PropertyConfig implements Configuration {
 	return sb.toString();
     }
 
-    @Override
-    public boolean isConfigOK() {
+    @PostConstruct
+    private void init() {
 	try{
 	    String awsPath = getAwsFilePath();
 	    r53 = buildRoute53(new File(awsPath));
@@ -107,10 +109,10 @@ public class PropertyConfig implements Configuration {
 		log.warn("mailSenderFrom:"+mailSenderFrom);
 		log.warn("mailSenderTo:"+mailSenderTo);
 	    }
-	    return ok;
+
 	}catch(Exception e){
 	    log.error("Wrong configuration or incomplete installation. Please try to re-install and complete the post installation configuration.");
-	    return false;
+	   throw new ConfigurationException(e);
 	}
     }
 

@@ -98,7 +98,8 @@ public class EnvUtil {
 	    }
 	    finally {
 		try {
-		    stream.close();
+		    if(stream!=null)
+			stream.close();
 		} catch (IOException ignored){}
 	    }
 	}

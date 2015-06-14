@@ -49,10 +49,6 @@ public class SimpleUpdater implements Updater {
      */
     public void run(ApplicationContext context) {
 
-	if(!config.isConfigOK()){
-	    log.error("Unfortunately something is wrong with the config and the program will exit without performing any action");
-	    return;
-	}
 	String publicIP=null;
 	try {
 	    publicIP = retrievePublicIP();
