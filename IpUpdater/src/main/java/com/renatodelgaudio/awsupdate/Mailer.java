@@ -47,6 +47,7 @@ public class Mailer {
      * @param args
      */
     public void sendEmail(String subject,String text) {
+	initMailer();
 	sendEmailTolist(subject, text, getMergedToList());
     }
     public void sendDebugEmail(String subject,String text) {
@@ -78,7 +79,7 @@ public class Mailer {
     }
     
     private String[] getMergedToList(){
-	
+	initMailer();
 	Set<String> toList = new HashSet<String>();
 	for(String address: to){
 	    toList.add(address);
