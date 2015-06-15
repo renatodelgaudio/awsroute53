@@ -57,7 +57,7 @@ public class RouteMain {
 		}
 		long end = System.currentTimeMillis();
 		long timeMin = (end - start) / 1000 / 60 / 60;
-		log.info(updater.getClass().getName()+" completed in "+timeMin+" sec.");
+		log.info(RouteMain.class.getSimpleName()+" completed in "+timeMin+" sec.");
 	}
 	
 }
