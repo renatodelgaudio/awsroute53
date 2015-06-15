@@ -20,10 +20,10 @@
 			<directory>${project.basedir}/launchers/win</directory>
 			<outputDirectory>/</outputDirectory>
 		</fileSet>
-		<fileSet>
+		<!-- <fileSet>
 			<directory>${project.build.directory}/lib</directory>
 			<outputDirectory>/lib</outputDirectory>
-		</fileSet>
+		</fileSet> -->
 		<fileSet>
 			<directory>${project.build.directory}</directory>
 			<outputDirectory>/</outputDirectory>
