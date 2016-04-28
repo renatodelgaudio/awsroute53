@@ -49,7 +49,7 @@ public class SimpleUpdater implements Updater {
      */
     public void run(ApplicationContext context) {
 
-	String publicIP=null;
+	String publicIP;
 	try {
 	    publicIP = retrievePublicIP();
 	} catch (IpRetrievalException e) {
@@ -58,10 +58,10 @@ public class SimpleUpdater implements Updater {
 	}
 
 	String dnsIp = recordService.getCurrentIP();
-
+	String sbj = "["+config.getRecordName()+"] awsroute53 ";
 	if(equalsIgnoreCase(publicIP,dnsIp)){
 	    log.info("AWS DNS ("+config.getRecordName()+") is already configured with the public IP "+publicIP+" No actions were performed at this time");
-	    mailSender.sendDebugEmail("awsroute53 OK", "AWS DNS ("+config.getRecordName()+") is already configured with the public IP "+publicIP+" No actions were performed at this time");
+	    mailSender.sendDebugEmail(sbj+ "OK", "AWS DNS ("+config.getRecordName()+") is already configured with the public IP "+publicIP+" No actions were performed at this time");
 	    return;
 	}
 
@@ -69,10 +69,10 @@ public class SimpleUpdater implements Updater {
 	
 	if(!success){
 	    log.error("Ops. Something went wrong and DNS was not updated");
-	    mailSender.sendEmail("awsroute53 NOT OK", "Ops. Something went wrong and DNS was not updated");    
+	    mailSender.sendEmail(sbj+"NOT OK", "Ops. Something went wrong and DNS was not updated");
 	    return;
 	}
-	 mailSender.sendEmail("awsroute53 IP UPDATED OK", "Since a new IP has been detected ["+publicIP+"], the DNS has been updated accordingly");    
+	 mailSender.sendEmail(sbj+"IP UPDATED OK", "Since a new IP has been detected ["+publicIP+"], the DNS for record "+config.getRecordName()+" has been updated accordingly");
     }
 
 }
