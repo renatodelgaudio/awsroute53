@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.renatodelgaudio.awsupdate</groupId>
 	<artifactId>IpUpdater</artifactId>
-	<version>2.1.1-SNAPSHOT</version>
+	<version>2.1.1</version>
 	<name>IpUpdater</name>
 	<description>After having retrieved the public IP, it updates the AWS Router53 record</description>
 	<properties>
@@ -20,7 +20,7 @@
 	</issueManagement>
 	<scm>
 		<developerConnection>scm:git:git@github.com:renatodelgaudio/awsroute53.git</developerConnection>
-		<tag>*/master</tag>
+		<tag>IpUpdater-2.1.1</tag>
 	</scm>
 	<developers>
 		<developer>
