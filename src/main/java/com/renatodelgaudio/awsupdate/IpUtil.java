@@ -76,12 +76,6 @@ public class IpUtil {
 			}
 		}
 
-		if (!new IPAddressValidator().validate(ip)){
-			log.error(ip+ " is not a valid IP. Exiting...");
-			IpRetrievalException ex = new IpRetrievalException(ip+ " is not a valid IP. Exiting...");
-			ex.setProviderName(provider.providerName());
-			throw ex;
-		}
 		// validate IP
 		if (isBlank(ip)){
 			log.error("Cannot get public IP. Exiting...");
@@ -89,6 +83,13 @@ public class IpUtil {
 			ex.setProviderName(provider.providerName());
 			throw ex;
 		}
+		if (!new IPAddressValidator().validate(ip)){
+			log.error(ip+ " is not a valid IP. Exiting...");
+			IpRetrievalException ex = new IpRetrievalException(ip+ " is not a valid IP. Exiting...");
+			ex.setProviderName(provider.providerName());
+			throw ex;
+		}
+
 
 		return ip;		
 	}
