@@ -1,5 +1,5 @@
-/**
- * Copyright (c) 2015 Renato Del Gaudio
+/*
+ * Copyright (c) 2016 Renato Del Gaudio
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,7 +31,7 @@ public interface AWSRecordService {
 	/**
 	 * The aws record is updated with the given IP
 	 * 
-	 * @param ip
+	 * @param ip The new IP to update in AWS
 	 * @return true whether the record has been updated with the given ip
 	 */
 	boolean updateRecord(String ip);

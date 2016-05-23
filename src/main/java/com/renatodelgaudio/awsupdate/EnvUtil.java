@@ -1,5 +1,5 @@
-/**
- * Copyright (c) 2015 Renato Del Gaudio
+/*
+ * Copyright (c) 2016 Renato Del Gaudio
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -71,7 +71,7 @@ public class EnvUtil {
 	}
 	
 	public static AmazonRoute53 buildRoute53(File aws){
-		AmazonRoute53 r53 = null;
+		AmazonRoute53 r53;
 		try {
 			r53 = new AmazonRoute53Client(new PropertiesCredentials(aws));
 		} catch (Exception e) {

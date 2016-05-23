@@ -1,5 +1,5 @@
-/**
- * Copyright (c) 2015 Renato Del Gaudio
+/*
+ * Copyright (c) 2016 Renato Del Gaudio
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -57,7 +57,7 @@ public class IpUtil {
 
 	/**
 	 * It retrieves the Public IP trying multiple providers (if needed)
-	 * @return
+	 * @return the detected public IP
 	 * @throws IpRetrievalException if no IP can be retrieved from the available providers or an invalid IP is returned
 	 */
 	public static String retrievePublicIP() throws IpRetrievalException{
@@ -72,7 +72,6 @@ public class IpUtil {
 				break;
 			}catch(IpRetrievalException e){
 				log.error("Could not retrieve the public IP from "+provider.providerName(),e);
-				continue;
 			}
 		}
 
