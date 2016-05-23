@@ -69,7 +69,12 @@ public class EnvUtil {
 	public static String getAwsFilePath(){
 		return INSTALL_DIR() + PROP_AWS_FILE_NAME;
 	}
-	
+
+	/**
+	 * Build the AWS client from the given File
+	 * @param aws
+	 * @return
+     */
 	public static AmazonRoute53 buildRoute53(File aws){
 		AmazonRoute53 r53;
 		try {
